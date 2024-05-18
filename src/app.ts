@@ -12,9 +12,13 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-server.use("/product", productRouter);
+server.use("/api/product", productRouter);
+
+server.get("/", (req, res) => {
+  res.json({ message: "Hello World!" });
+});
 
 server.listen(APP_PORT, () => {
   console.clear()
-  console.log(`\n-> API listening on http://127.0.0.1:${APP_PORT}/`);
+  console.log(`\n-> API listening on http://localhost:${APP_PORT}/`);
 });
